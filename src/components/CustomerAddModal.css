@@ -1,0 +1,75 @@
+.modal-blur-bg {
+  backdrop-filter: blur(6px) brightness(0.7);
+  background: rgba(44, 62, 80, 0.25) !important;
+  transition: backdrop-filter 0.3s;
+}
+
+.blurred-modal .p-dialog-mask {
+  backdrop-filter: blur(6px) brightness(0.7);
+}
+
+.p-dialog .p-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(44,62,80,0.18);
+  border: 1.5px solid #e0e4ea;
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+.outer-card .p-card-header {
+  text-align: left;
+}
+
+.outer-card .p-card-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.p-card .p-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px 12px 12px;
+}
+
+.p-card .p-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.p-card label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #34495e;
+}
+
+.p-card input {
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #dbe2ef;
+  padding: 8px 12px;
+  font-size: 15px;
+}
+
+.modal-footer-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.modal-footer-btns .p-button-success {
+  background: #27ae60;
+  border-color: #27ae60;
+}
+
+.modal-footer-btns .p-button-text {
+  background: #f4f6f8;
+  color: #34495e;
+  border: 1px solid #dbe2ef;
+} 

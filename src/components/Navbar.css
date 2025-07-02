@@ -1,0 +1,119 @@
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.navbar-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ecf0f1;
+}
+
+.navbar-menu {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  margin: 2px 0;
+}
+
+.navbar-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: #3498db;
+  transform: translateX(5px);
+}
+
+.navbar-item.active {
+  background: rgba(52, 152, 219, 0.2);
+  border-left-color: #3498db;
+  color: #3498db;
+}
+
+.navbar-icon {
+  font-size: 18px;
+  margin-right: 12px;
+  width: 24px;
+  text-align: center;
+}
+
+.navbar-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navbar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-item {
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 6px;
+  margin: 0;
+}
+
+.logout-item:hover {
+  background: rgba(231, 76, 60, 0.2);
+  border-left-color: #e74c3c;
+}
+
+.logout-item .navbar-icon {
+  color: #e74c3c;
+}
+
+/* Scrollbar stilleri */
+.navbar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.navbar-menu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.navbar-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .navbar {
+    width: 200px;
+  }
+  
+  .navbar-header h2 {
+    font-size: 16px;
+  }
+  
+  .navbar-label {
+    font-size: 13px;
+  }
+} 
