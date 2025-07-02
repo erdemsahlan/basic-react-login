@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
+import { useToast } from '../context/ToastContext';
 import axiosInstance from '../auth/axiosInstance';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
   const { login } = useAuth();
+  const { showToast } = useToast();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
 
     try {
       const response = await axiosInstance.post('/auth/login', {
@@ -24,15 +24,16 @@ const Login: React.FC = () => {
       console.log(response.data);
       if (response.data.token) {
         login(response.data.token);
+        showToast('success', 'Başarılı!', 'Giriş yapıldı');
         navigate('/');
       } else {
-        setError('Token alınamadı');
+        showToast('error', 'Hata!', 'Token alınamadı');
       }
     } catch (error: any) {
       if (error.response?.data?.message) {
-        setError(error.response.data.message);
+        showToast('error', 'Giriş Hatası', error.response.data.message);
       } else {
-        setError('Giriş yapılırken bir hata oluştu');
+        showToast('error', 'Hata!', 'Giriş yapılırken bir hata oluştu');
       }
     } finally {
       setLoading(false);
@@ -42,16 +43,13 @@ const Login: React.FC = () => {
   return (
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px' }}>
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        {error && (
-          <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>
-        )}
+        <h2>GİRİŞ İŞLEMLERİ</h2>
         <div style={{ marginBottom: '15px' }}>
           <input
             type="text"
             placeholder="Kullanıcı Adı"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             style={{ width: '100%', padding: '10px', fontSize: '16px' }}
             required
           />
@@ -61,7 +59,7 @@ const Login: React.FC = () => {
             type="password"
             placeholder="Şifre"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             style={{ width: '100%', padding: '10px', fontSize: '16px' }}
             required
           />
